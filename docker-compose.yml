@@ -1,0 +1,31 @@
+version: '3.1'
+services:
+  redis:
+    image: redis
+
+  voting-app:
+    image: vote
+    ports:
+    - 5000:80
+    links:
+      - redis
+
+  db:
+    image: postgres:9.4
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  worker-app:
+    image: worker
+    links:
+      - db
+      - redis
+
+  result-app:
+    image: result
+    ports:
+    - 5001:80
+    links:
+      - db
