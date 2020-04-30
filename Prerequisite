@@ -1,0 +1,10 @@
+clone this directory
+git clone https://github.com/dockersamples/example-voting-app.git
+
+Build below images and then run docker-compse
+
+docker build vote/ -t vote
+
+docker build result/ -t result
+
+docker build worker/ -t worker
