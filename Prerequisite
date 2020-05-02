@@ -1,3 +1,5 @@
+docker-compose file can be run without links options, still containers can interact with each other
+
 clone this directory
 git clone https://github.com/dockersamples/example-voting-app.git
 
